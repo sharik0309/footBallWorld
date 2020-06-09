@@ -1,0 +1,229 @@
+<template>
+  
+        <lightning-card title="Football World" icon-name='utility:activity'>
+            <lightning-button label='Competitions' onclick={onClickCompetition} variant={selected} onmouseout={onMouseOver} onmouseover={onMouseOver} class="slds-p-around_x-small"></lightning-button>
+            
+            <div if:true={casesSpinner} class="slds-spinner_inline spinner-padding slds-is-relative">
+                <lightning-spinner variant="brand" 
+                                   alternative-text="Loading...."     
+                                   size="medium">
+                </lightning-spinner>
+            </div>
+
+            <!--show list of competitions-->
+            <select class="slds-select" onchange={selectionChangeHandler} style="width: 200px" if:true={showComp} >
+                <option value="Select">--Select--</option>
+                <template for:each={data.competitions} for:item='comp'>
+                    <option key={comp.id}  value={comp.code}>{comp.name}</option>
+                </template>
+            </select> 
+        
+            <!--show list of clubs based on selected competitions--> 
+            <select class="slds-select slds-p-around_x-small" onchange={selectionShowTeams} style="width: 200px"  if:true={showTeamsList} >
+                <option value="Select">--Select--</option>
+                <template for:each={teamList.teams} for:item='team'>
+                    <option key={team.id}  value={team.tla}>{team.name}</option>
+                </template>
+            </select> 
+        </lightning-card>
+    
+        <lightning-card if:true={compDetailShow} title={CompDetails.name} class="slds-p-around_small" >
+            <lightning-layout>
+                
+                <lightning-layout-item class="slds-p-around_small">
+                    <img src= {CompDetails.emblemUrl} alt="Photo" style="width: 100px; height: 100px" /> 
+                </lightning-layout-item>
+                
+                <lightning-layout-item >
+                <dl class="slds-dl_horizontal">
+                    <dt class="slds-dl_horizontal__label">
+                        <p class="slds-truncate">Host:</p>
+                    </dt>
+                    <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                        <p class="slds-truncate">{CompDetails.area.name}</p>
+                    </dd>
+                    <dt class="slds-dl_horizontal__label">
+                        <p class="slds-truncate">Start Date:</p>
+                    </dt>
+                    <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                        <p class="slds-truncate"> {CompDetails.currentSeason.startDate}</p>
+                    </dd>
+                    <dt class="slds-dl_horizontal__label">
+                        <p class="slds-truncate">End Date:</p>
+                    </dt>
+                    <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                        <p class="slds-truncate">{CompDetails.currentSeason.endDate}</p>
+                    </dd>
+                </dl>
+                </lightning-layout-item>
+
+                <lightning-layout-item  class="slds-p-around_x-small">
+                    <a href="javascript:void(0)" onclick={onClickfixtures}>
+                    <strong>Fixtures</strong> 
+                    </a>
+                </lightning-layout-item>
+
+                <lightning-layout-item  class="slds-p-around_x-small">
+                    <a href="javascript:void(0)" onclick={onClickResults}>
+                    <strong>Results</strong> 
+                    </a>
+                </lightning-layout-item>
+                
+                <lightning-layout-item class="slds-p-around_x-small">
+                <!--<div onclick={topScorerClick}>-->
+                    <a href="javascript:void(0)" onclick={topScorerClick}>
+                        <strong>Top Scorers</strong> 
+                    </a>                   
+                </lightning-layout-item>
+
+                <!--Points table Link-->
+               <lightning-layout-item  class="slds-p-around_x-small">
+                   <a href="javascript:void(0)" onclick={onClickPointsTable}>
+                      <strong>Points Table</strong> 
+                   </a>
+               </lightning-layout-item>
+            
+            </lightning-layout>
+        </lightning-card>
+        
+          <!--top scorer section-->
+        <lightning-card title='Top Scorer' icon-name='action:new_task' if:true={showTopScorer} >
+                Last Updated: {topScorer.competition.lastUpdated}
+                <!--looping list of top scorers-->
+             <lightning-layout>
+             <lightning-layout-item class="slds-p-around_small">     
+            <template for:each={topScorer.scorers} for:item='top' class="slds-p-around_small" >
+                <p key={top.player.id}> 
+                <a href="javascript:void(0)" onclick={playerOnClick} id={top.player.name}>
+                {top.player.name} </a>----> Goals: {top.numberOfGoals}</p>           
+            </template>
+            
+            <!--Custom modal popup-->
+            <template if:true={isModalOpen}>
+                <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                    <div class="slds-modal__container">
+                        <header class="slds-modal__header">
+                            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                                <lightning-icon icon-name="utility:close"
+                                    alternative-text="close" variant="inverse" size="small" ></lightning-icon>
+                                <span class="slds-assistive-text">Close</span>
+                            </button>
+                            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{playerDetails.player.name}</h2>
+                        </header>
+                        <!-- Modal/Popup Box LWC body starts here -->
+                        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                            <p>Position : {playerDetails.player.position}</p>  
+                            <p>Goals : {playerDetails.numberOfGoals} </p> 
+                            <p>Jersey No : {playerDetails.player.shirtNumber} </p>
+                            <p>Club : {playerDetails.team.name} </p>
+                            <p>Nationality : {playerDetails.player.nationality}</p>                                
+                            <p>Date Of Birth : {playerDetails.player.dateOfBirth}</p>
+                        
+                        </div>
+                    </div>
+                </section>
+                <div class="slds-backdrop slds-backdrop_open"></div>
+            </template>
+            </lightning-layout-item>
+        </lightning-layout>
+        </lightning-card>
+
+
+        <!--Points table section -->
+        <lightning-card title='Points Table' if:true={showPointsTable}  icon-name='action:record' class="slds-p-around_small" >
+        <!--<lightning-datatable data={pointsTable.table} columns={columns} key-field="Id">
+            </lightning-datatable>-->
+            <table>
+                <tr>
+                <th></th>
+                <th>Played</th>
+                <th>Won</th>
+                <th>Lost</th>
+                <th>Draw</th>
+                <th>Points</th>
+                <th>Goal Diff</th>
+                </tr>
+            <template for:each={pointsTable.table} for:item='pt'> 
+            <tr key={pt.team.id} >
+                    <td><pre> {pt.position}.   <img  key={pt.team.id} src= {pt.team.crestUrl} alt="Photo" style="width: 30px; height: 30px" /> {pt.team.name}</pre></td>
+                    <td>{pt.playedGames}</td>
+                    <td>{pt.won}</td>
+                    <td>{pt.lost}</td>
+                    <td>{pt.draw}</td>
+                    <td>{pt.points}</td>
+                    <td>{pt.goalDifference}</td>
+            </tr>
+            </template>
+        </table>
+        </lightning-card>
+
+        <lightning-card title="Fixtures" icon-name='action:new_event' if:true={showfixture} class="slds-p-around_small" >
+            <lightning-layout>
+             <lightning-layout-item class="slds-p-around_small">  
+            <template for:each={fixtures.matches} for:item='fix'> 
+                <div key={fix.id}>
+                      
+                <p>Date : {fix.utcDate}</p> 
+                <p>Status : {fix.status}</p> 
+                <p>{fix.homeTeam.name}  v/s  {fix.awayTeam.name} </p> 
+                <!--<p>Winner : {fix.score.winner}</p> 
+                {fix.score.fullTime.homeTeam} {fix.score.fullTime.awayTeam} -->
+
+                </br>
+           
+              </div>
+             </template>
+           </lightning-layout-item>
+          </lightning-layout>
+        </lightning-card>
+
+        <lightning-card title="Results" icon-name='action:defer' if:true={showResults} class="slds-p-around_small" >
+            <lightning-layout>
+             <lightning-layout-item class="slds-p-around_small">  
+            <template for:each={result.matches} for:item='fix'> 
+                <div key={fix.id}>     
+                    <p>Date : {fix.utcDate}</p> 
+                    <p>Status : {fix.status}</p> 
+                    <p>{fix.homeTeam.name}<strong> ({fix.score.fullTime.homeTeam})</strong>   v/s   {fix.awayTeam.name} <strong>({fix.score.fullTime.awayTeam})</strong> </p> 
+                    <!--<p>Winner : {fix.score.winner}</p> 
+                    -->
+                    </br>
+              </div>
+             </template>
+           </lightning-layout-item>
+          </lightning-layout>
+        </lightning-card>
+
+
+        <lightning-card if:true={showTeamDetails} class="slds-p-around_small" >
+        <lightning-layout>
+            <!--Image url of club--> 
+            <lightning-layout-item class="slds-p-around_small">
+                <img src= {teamDetails.crestUrl} alt="Photo" style="width: 100px; height: 100px" />
+            </lightning-layout-item>
+            
+            <!--Club details-->
+            <lightning-layout-item class="slds-p-around_small">
+                <strong>Name</strong>: {teamDetails.name} </br>
+                <strong>Statium</strong>: {teamDetails.venue}  </br>
+                <strong>Address</strong>: {teamDetails.address}  </br>
+                <strong>Phone</strong>: {teamDetails.phone}  </br>
+                <strong>Website</strong>: {teamDetails.website}  </br>
+                <strong>Email</strong>: {teamDetails.email}  </br>
+                <strong>Founded</strong>:  {teamDetails.founded}  </br>
+                <strong>Jersey</strong>:  {teamDetails.clubColors}  </br>
+            </lightning-layout-item>
+
+            <lightning-layout-item class="slds-p-around_small">
+                <lightning-button label='Fixtures' onclick={onClickSquad} variant='Brand'></lightning-button>
+            </lightning-layout-item>
+
+            <lightning-layout-item class="slds-p-around_small">
+                <lightning-button label='Squad' onclick={onClickSquad} variant='Brand'></lightning-button>
+            </lightning-layout-item>
+           
+          
+    </lightning-layout>
+  </lightning-card>
+
+</template>
