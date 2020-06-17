@@ -1,0 +1,40 @@
+<template>
+    <lightning-card if:true={showTeamDetails}>
+        <lightning-layout>
+             <!--Image url of club
+            <lightning-layout-item class="slds-p-around_small">
+               <img src= {teamDetails.crestUrl} alt="Photo" style="width: 100px; height: 100px" />
+            </lightning-layout-item>--> 
+           
+            <!--Club details-->
+            <lightning-layout-item class="slds-p-around_small">
+              <strong>Name</strong>: {teamDetails.name} </br>
+              <strong>Statium</strong>: {teamDetails.venue}  </br>
+              <strong>Address</strong>: {teamDetails.address}  </br>
+              <strong>Phone</strong>: <lightning-formatted-phone value= {teamDetails.phone} ></lightning-formatted-phone>  </br>
+              <strong>Website</strong>: <lightning-formatted-url value={teamDetails.website}  target="_blank"></lightning-formatted-url>  </br>
+              <strong>Email</strong>: <lightning-formatted-email value={teamDetails.email}  ></lightning-formatted-email>  </br>
+              <strong>Founded</strong>:  {teamDetails.founded}  </br>
+              <strong>Jersey</strong>:  {teamDetails.clubColors}  </br>
+            </lightning-layout-item>
+  
+            <lightning-layout-item class="slds-p-around_small">
+              <!--  <lightning-button label='Fixtures' onclick={onClickFixtures} variant='Brand'></lightning-button>-->
+                <img src= {teamDetails.crestUrl} alt="Photo" style="width: 100px; height: 100px" /></br></br>
+                <lightning-button label='Squad' onclick={onClickSquad} variant='neutral'></lightning-button>
+            </lightning-layout-item>
+  
+            <!--<lightning-layout-item class="slds-p-around_small">
+              <lightning-button label='Squad' onclick={onClickSquad} variant='Brand'></lightning-button>
+            </lightning-layout-item>-->
+         
+         </lightning-layout>   
+      </lightning-card>
+
+      <lightning-card title='Squad' icon-name='action:new_group' if:true={showSquad} class="slds-p-around_small">
+           <template for:each={squad.squad} for:item='sq' for:index='indx'>
+               <p key={sq.id} class="slds-p-around_small"> <strong>{sq.name}</strong> ({sq.position} - {sq.nationality})</p>
+           </template>
+      </lightning-card>
+    
+</template>
