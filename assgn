@@ -1,0 +1,1242 @@
+<assignmentRule>
+        <fullName>Case Categorization Assignment Rules</fullName>
+        <active>true</active>
+        <ruleEntry>
+            <assignedTo>WMG_API_Partner_Enablement</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Sponsored Ads Case</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Advertiser_Channel__c</field>
+                <operation>equals</operation>
+                <value>Seller Channel Partner,Supplier Channel Partner,WAP Partner</value>
+            </criteriaItems>
+            <template>Advertiser_Community_Email_Templates/Notify_New_Case_Added_To_Queue</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Ads_SP_Support_L1</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Sponsored Ads Case</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Advertiser_Channel__c</field>
+                <operation>equals</operation>
+                <value>Supplier,Ad Agency</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Issue_Category__c</field>
+                <operation>notEqual</operation>
+                <value>Onboarding</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Ads_SP_Support_L1</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Sponsored Ads Case</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Advertiser_Channel__c</field>
+                <operation>equals</operation>
+                <value>Seller</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Ads_Display_L1</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Display Onsite</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>WMC_DSP_Rev_Ops_queue</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Walmart DSP Offsite Case</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Advertiser_Channel__c</field>
+                <operation>equals</operation>
+                <value>TTD</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Shop_Builder_L1_Queue</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Shop Builder Case</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>MP_Payment_Risk_Support_Queue</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>MP Payment Risk Review</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Status</field>
+                <operation>equals</operation>
+                <value>New</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Case_Labels__c</field>
+                <operation>equals</operation>
+                <value>Negative Model</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Brand_Portal</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND( OR( INCLUDES(Partnership__r.Partnership_Tag__c,'Brand Owner'), Account.RecordType.DeveloperName ='WBP', ISPICKVAL(communityType__c, 'Brand') ), RecordType.DeveloperName = 'Walmart_Marketplace', ISPICKVAL(communityType__c, 'Brand') )</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Brand_Portal</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Walmart Owned</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category__c</field>
+                <operation>equals</operation>
+                <value>Brand Ownership</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Payments</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>(1 OR 2) AND 3</booleanFilter>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category__c</field>
+                <operation>equals</operation>
+                <value>Business Detail Verification</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category__c</field>
+                <operation>equals</operation>
+                <value>Change My Payment Processor</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Walmart Marketplace</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Rights_Owner_AML</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category__c</field>
+                <operation>equals</operation>
+                <value>Jewelry and Watches Questionnaire Appeal</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Walmart Marketplace</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Primary_Contact_Update_US</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Category_L3__c</field>
+                <operation>equals</operation>
+                <value>Update Primary Contact Info</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.Country_of_Incorporation__c</field>
+                <operation>equals</operation>
+                <value>US</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Walmart Marketplace</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Primary_Contact_Update_China</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Category_L3__c</field>
+                <operation>equals</operation>
+                <value>Update Primary Contact Info</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.Country_of_Incorporation__c</field>
+                <operation>equals</operation>
+                <value>CN,HK</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Walmart Marketplace</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Primary_Contact_Update_Intl</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Category_L3__c</field>
+                <operation>equals</operation>
+                <value>Update Primary Contact Info</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.Country_of_Incorporation__c</field>
+                <operation>notEqual</operation>
+                <value>CN,HK,US</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Walmart Marketplace</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Incorrect_Item_Categorization_China</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Walmart Marketplace</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.Country_of_Incorporation__c</field>
+                <operation>equals</operation>
+                <value>CN,HK</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Category_L1__c</field>
+                <operation>equals</operation>
+                <value>Items and Inventory</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Category_L2__c</field>
+                <operation>equals</operation>
+                <value>Incorrect item categorization</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Incorrect_Item_Categorization</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Walmart Marketplace</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Category_L1__c</field>
+                <operation>equals</operation>
+                <value>Items and Inventory</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Category_L2__c</field>
+                <operation>equals</operation>
+                <value>Incorrect item categorization</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>WFS_Gold_Project</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Original_Issue_Category__c</field>
+                <operation>equals</operation>
+                <value>Walmart Fulfillment Services (WFS) Program</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category__c</field>
+                <operation>equals</operation>
+                <value>WFS Training & Seller Help</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category_2__c</field>
+                <operation>equals</operation>
+                <value>WFS Projects</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Chinese_Language_Support_WFS</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Original_Issue_Category__c</field>
+                <operation>equals</operation>
+                <value>Walmart Fulfillment Services (WFS) Program</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Language_selected_for_support__c</field>
+                <operation>equals</operation>
+                <value>中文 (Chinese)</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Chinese_Language_Support_MP</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Language_selected_for_support__c</field>
+                <operation>equals</operation>
+                <value>中文 (Chinese)</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Walmart Marketplace</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Chinese_Support_WFS</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Original_Issue_Category__c</field>
+                <operation>equals</operation>
+                <value>Walmart Fulfillment Services (WFS) Program</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.International_Seller__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.Country_of_Incorporation__c</field>
+                <operation>equals</operation>
+                <value>CN,HK</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Walmart Marketplace</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>WFS</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>OR( AND(Original_Issue_Category__c ='Walmart Fulfilled Items', Partnership__r.RecordType.Name ='Walmart.com: Marketplace'), AND(Original_Issue_Category__c = 'Walmart Fulfillment Services (WFS)', Partnership__r.RecordType.Name ='Walmart.com: Marketplace'), AND(CONTAINS(Partner_Support_Entitlement__c, 'Case Category Beta Release'), Category_L1__c = 'Walmart Fulfillment Services (WFS) Program', Partnership__r.RecordType.Name ='Walmart.com: Marketplace',NOT(INCLUDES(Case_Labels__c,'WFS - Inbound Exceptions'))) )</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>WFS</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS(Partner_Support_Entitlement__c, 'Case Category Beta Release'), Category_L1__c = 'Walmart Fulfillment Services (WFS) Program', Partnership__r.RecordType.Name ='Walmart.com: Marketplace', INCLUDES(Case_Labels__c,'WFS - Inbound Exceptions'),OR(ISPICKVAL(WFS_Inbound_Escalation_Reason__c,'Overages'),ISPICKVAL(WFS_Inbound_Escalation_Reason__c,'Re-Work'),ISPICKVAL(WFS_Inbound_Escalation_Reason__c,'Wrong FC'),ISPICKVAL(WFS_Inbound_Escalation_Reason__c,'Damages'),ISPICKVAL(WFS_Inbound_Escalation_Reason__c,'Item Not on PO'),ISPICKVAL(WFS_Inbound_Escalation_Reason__c,'Item Not on PO'),ISPICKVAL(WFS_Inbound_Escalation_Reason__c,'Cancelled PO')))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>WFS_Inbound_Exceptions_New</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS(Partner_Support_Entitlement__c, 'Case Category Beta Release'), Category_L1__c = 'Walmart Fulfillment Services (WFS) Program', Partnership__r.RecordType.Name ='Walmart.com: Marketplace', INCLUDES(Case_Labels__c,'WFS - Inbound Exceptions'))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Dispute_Case_Landing_Queue</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(
+     OR(
+         AND(
+             OR(
+                 Category_L2__c = 'Dispute Appeal',
+                  Category_L2__c = 'Appeal a dispute decision',
+                    Category_L2__c = "Enhanced Returns"),
+                NOT(ISPICKVAL(Dispute_Status__c, 'Manual Review')),
+                NOT(ISPICKVAL(Dispute_Status__c, 'Manually Approved')),
+                NOT(ISPICKVAL(Dispute_Status__c, 'Manually Rejected')),
+                NOT(ISPICKVAL(Dispute_Status__c, 'Approved - Manual payment'))),
+            Category_L2__c = "Walmart Customer Care Refund Dispute",
+            AND(OR(Seller_Segment__c = "SAM", ISPICKVAL(Origin, 'SAM Created')), Category_L1__c = "Payments",
+                OR(Category_L2__c = "Payment settlement issues", Category_L2__c = "Referral fees or sales tax questions", Category_L2__c = "Payment report issues"))),
+            CONTAINS(Partner_Support_Entitlement__c, "Case Category Beta Release"), RecordType.DeveloperName = "Walmart_Marketplace")</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Dispute_Case_Landing_Queue</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>(1 AND 8 AND 9 AND 10 AND 11 AND 12) OR (2 AND 3 AND (4 OR 13)) OR (5 AND 8 AND 9 AND 10 AND 11 AND 12) OR ((7 OR 6 ) AND 8 AND 9 AND 10 AND 11 AND 12)</booleanFilter>
+            <criteriaItems>
+                <field>Case.Sub_Category_1__c</field>
+                <operation>equals</operation>
+                <value>Enhanced Returns</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Issue_Category__c</field>
+                <operation>equals</operation>
+                <value>Payments & Adjustments</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category__c</field>
+                <operation>equals</operation>
+                <value>A Missing Payment</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Seller_Segment__c</field>
+                <operation>equals</operation>
+                <value>SAM</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Sub_Category_1__c</field>
+                <operation>equals</operation>
+                <value>Walmart Customer Care Refund Dispute</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Sub_Category_1__c</field>
+                <operation>equals</operation>
+                <value>Appeal a dispute decision</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Sub_Category_1__c</field>
+                <operation>equals</operation>
+                <value>Dispute Appeal</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Issue_Category__c</field>
+                <operation>equals</operation>
+                <value>Disputes</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Dispute_Status__c</field>
+                <operation>notEqual</operation>
+                <value>Manual Review</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Dispute_Status__c</field>
+                <operation>notEqual</operation>
+                <value>Manually Approved</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Dispute_Status__c</field>
+                <operation>notEqual</operation>
+                <value>Manually Rejected</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Dispute_Status__c</field>
+                <operation>notEqual</operation>
+                <value>Approved - Manual payment</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>equals</operation>
+                <value>SAM Created</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Disputes_Escalation_Queue</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND( TEXT(Issue_Category__c) == 'Disputes', INCLUDES(Partnership__r.Partnership_Tag__c, 'WG - Disputes'))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Account_Management</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND( CONTAINS(Category_L3__c, "Appealing account suspension"),ISPICKVAL(Partnership__r.Partnership_Status__c,'Suspended'), OR( ISPICKVAL(Partnership__r.Suspension_Reason__c ,'Policy Violation'), ISPICKVAL(Partnership__r.Suspension_Reason__c ,'Operational Performance')),CONTAINS(Partner_Support_Entitlement__c, 'Case Category Beta Release'), RecordType.DeveloperName = 'Walmart_Marketplace' )</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Application_Appeals_China</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 AND 2 AND 3 AND (4 OR 5 OR 6)</booleanFilter>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Walmart Marketplace</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.Country_of_Incorporation__c</field>
+                <operation>equals</operation>
+                <value>CN,HK</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.Preferred_Tax_Classification_of_Company__c</field>
+                <operation>equals</operation>
+                <value>W-8 BEN-E</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Category_L1__c</field>
+                <operation>equals</operation>
+                <value>Appeal application decision</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Category_L2__c</field>
+                <operation>equals</operation>
+                <value>Appeal Business Verification Decision</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Category_L2__c</field>
+                <operation>equals</operation>
+                <value>Appeal application decision</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Application_Appeals</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Walmart Marketplace</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Category_L1__c</field>
+                <operation>equals</operation>
+                <value>Appeal Application Decision</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Category_L2__c</field>
+                <operation>equals</operation>
+                <value>Appeal Business Verification Decision</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Category_L2__c</field>
+                <operation>equals</operation>
+                <value>Appeal application decision</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Compliance</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND( OR(Category_L3__c = "Compliance error code (COMP)",Category_L3__c = "Trust and Safety error code (IP and Offensive)"), CONTAINS(Partner_Support_Entitlement__c, 'Case Category Beta Release') , RecordType.DeveloperName = 'Walmart_Marketplace' )</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>T_S_Onboarding_Cleanup_China</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Walmart Marketplace</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.Country_of_Incorporation__c</field>
+                <operation>equals</operation>
+                <value>CN,HK</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.Preferred_Tax_Classification_of_Company__c</field>
+                <operation>equals</operation>
+                <value>W-8 BEN-E</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category__c</field>
+                <operation>equals</operation>
+                <value>Verifying Status Update Questions</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>T_S_Onboarding_Cleanup</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Walmart Marketplace</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category__c</field>
+                <operation>equals</operation>
+                <value>Verifying Status Update Questions</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>T_S_W9_China</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 AND 2 AND 3 AND (4 OR 5 OR 6 OR 7 OR 8)</booleanFilter>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Walmart Marketplace</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.Country_of_Incorporation__c</field>
+                <operation>equals</operation>
+                <value>CN,HK</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.Preferred_Tax_Classification_of_Company__c</field>
+                <operation>equals</operation>
+                <value>W-8 BEN-E</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category__c</field>
+                <operation>equals</operation>
+                <value>Tax Information Questions and Issues</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category__c</field>
+                <operation>equals</operation>
+                <value>W-9/W-8 Status</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category_2__c</field>
+                <operation>equals</operation>
+                <value>Need help with W-9/W-8</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category__c</field>
+                <operation>equals</operation>
+                <value>Inform Act Compliance</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category_2__c</field>
+                <operation>equals</operation>
+                <value>INFORM Act Compliance</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>T_S_W9</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 AND (2 OR 3 OR 4 OR 5 OR 6)</booleanFilter>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Walmart Marketplace</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category__c</field>
+                <operation>equals</operation>
+                <value>Tax Information Questions and Issues</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category__c</field>
+                <operation>equals</operation>
+                <value>W-9/W-8 Status</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category_2__c</field>
+                <operation>equals</operation>
+                <value>Need help with W-9/W-8</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category__c</field>
+                <operation>equals</operation>
+                <value>Inform Act Compliance</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category_2__c</field>
+                <operation>equals</operation>
+                <value>INFORM Act Compliance</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>MP_CX_Content_Team</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND( RecordType.DeveloperName = 'Walmart_Marketplace', OR( Original_Sub_Category__c ='Content Appeal' , AND(Original_Sub_Category__c ='Content update errors', ISPICKVAL(What_are_you_trying_to_accomplish__c,'Request Content Ownership')), Original_Sub_Category__c = 'Appeal Duplicates Decision' ) )</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Rich_Media</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Walmart Marketplace</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category__c</field>
+                <operation>equals</operation>
+                <value>Rich Media</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Chinese_Support_MP</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Walmart Marketplace</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.International_Seller__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.Country_of_Incorporation__c</field>
+                <operation>equals</operation>
+                <value>CN,HK</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Service_Advisor_Pilot_Queue</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(
+NOT(ISBLANK(Partnership__r.Dedicated_Agent__c) ) ,
+NOT(ISNULL(Partnership__r.Dedicated_Agent__c) ),
+Partnership__r.RecordType.Name ='Walmart.com: Marketplace',
+OR(ISPICKVAL( Origin , 'Phone'), ISPICKVAL( Origin , 'Web')),
+RecordType.DeveloperName = 'Walmart_Marketplace'
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>SAM_Request_Call</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND( RecordType.DeveloperName != 'MP_Payment',  ISPICKVAL( Origin , 'Phone'), ISPICKVAL(Partnership__r.Seller_Segmentation__c ,'SAM'), Partnership__r.RecordType.Name ='Walmart.com: Marketplace')</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>SAM_queue</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>OR(AND(RecordType.DeveloperName != 'MP_Payment',
+IF( Partnership__c <> Null, AND(ISPICKVAL(Partnership__r.Seller_Segmentation__c ,'SAM'),
+Partnership__r.RecordType.Name ='Walmart.com: Marketplace') , AND(ISPICKVAL(Account.Seller_Segmentation__c ,'SAM'),
+Account.RecordType.Name ='US Marketplace'))),AND(RecordType.DeveloperName = 'Walmart_Marketplace',ISPICKVAL(Origin,'SAM Created'),AccountId=null,Partnership__c=null))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Pilot_Cat_Specific_Team</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Walmart Marketplace</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Category_L1__c</field>
+                <operation>equals</operation>
+                <value>Items and Inventory</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Category_L2__c</field>
+                <operation>equals</operation>
+                <value>Setting up or managing variant grouping</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Category_L2__c</field>
+                <operation>equals</operation>
+                <value>Inventory update errors</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Solution_Provider_Request_Call</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Account.White_Glove_Enabled__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Solution Provider</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Walmart Marketplace</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>equals</operation>
+                <value>Phone</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>White_Glove_Solution_Provider</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Account.White_Glove_Enabled__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Solution Provider</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Walmart Marketplace,Walmart DSV</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <formula>AND(NOT(ISNEW()),IF($User.FirstName == 'Walmart JIRA', true, false))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Negative_PSAT_Queue</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1</booleanFilter>
+            <criteriaItems>
+                <field>Case.Issue_Category__c</field>
+                <operation>equals</operation>
+                <value>Negative PSAT,Seller Center Feedback</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Partner_Integration</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(  INCLUDES(Partnership__r.Partnership_Tag__c, 'White Glove'),  NOT(OR(ISPICKVAL(Partnership__r.Partnership_Status__c,'Live'),  ISPICKVAL(Partnership__r.Partnership_Status__c,'Suspended')))  )</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>DSV_Operations</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 AND 2 AND 3 AND (4 OR 5 OR 6 OR 7 OR 8 OR 9 OR 10 OR 11 OR 12 OR 13 OR 14 OR 15)</booleanFilter>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Walmart DSV</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category_2__c</field>
+                <operation>notContain</operation>
+                <value>Holiday</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category_2__c</field>
+                <operation>notEqual</operation>
+                <value>Lead Time</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Sub_Category_1__c</field>
+                <operation>equals</operation>
+                <value>Operational Settings</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category_2__c</field>
+                <operation>contains</operation>
+                <value>(Business Plan of Action)</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category_2__c</field>
+                <operation>equals</operation>
+                <value>Cutoff Time,Capacity</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category__c</field>
+                <operation>equals</operation>
+                <value>Activate My Account</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category__c</field>
+                <operation>equals</operation>
+                <value>Deactivate my Account</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category__c</field>
+                <operation>equals</operation>
+                <value>Forecast</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category_2__c</field>
+                <operation>equals</operation>
+                <value>Remove DC Facility</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category__c</field>
+                <operation>equals</operation>
+                <value>Customization/Personalization Items</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category_2__c</field>
+                <operation>equals</operation>
+                <value>Carrier Method Support</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category_2__c</field>
+                <operation>equals</operation>
+                <value>LTL/Freight carrier Request</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category_2__c</field>
+                <operation>equals</operation>
+                <value>Transportation Chargebacks Disputes / Invoice</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category__c</field>
+                <operation>equals</operation>
+                <value>Performance & Suspension Appeals</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Trust_Safety</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>Partnership__r.InActive__c = true  &&  RecordType.DeveloperName = 'Walmart_Marketplace'</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Returns_Recovery</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Sub_Category_2__c</field>
+                <operation>equals</operation>
+                <value>CSA Partial Charges,DSV VR Chargebacks,Owned VR Chargebacks</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>OutboundTransport_Finance_and_Compliance</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 OR 2</booleanFilter>
+            <criteriaItems>
+                <field>Case.Sub_Category_1__c</field>
+                <operation>equals</operation>
+                <value>Outbound Transportation - Finance & Compliance</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category__c</field>
+                <operation>equals</operation>
+                <value>"Transportation - Finance, Compliance and Chargebacks"</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Trust_Safety</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND( CONTAINS(Category_L3__c, "Appealing account suspension"),ISPICKVAL(Partnership__r.Partnership_Status__c,'Suspended'), ISPICKVAL(Partnership__r.Suspension_Reason__c ,'T&S Violation'), CONTAINS(Partner_Support_Entitlement__c, 'Case Category Beta Release'), RecordType.DeveloperName = 'Walmart_Marketplace' )</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Trust_Safety</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(ISPICKVAL( Sub_Category_1__c , 'Account Appeal'),(ISPICKVAL(Partnership__r.Partnership_Status__c,'Suspended')), ISPICKVAL( Partnership__r.Suspension_Reason__c ,'T&S Violation'))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Dotcom_Returns_Claim_Disputes</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>OR( AND( ISPICKVAL(Issue_Category__c, 'Returns'), ISPICKVAL(Sub_Category_1__c, 'Direct Mailback Support') ), AND( ISPICKVAL(Issue_Category__c, 'Returns'), ISPICKVAL(Sub_Category_1__c, 'Return Chargebacks'), OR( ISPICKVAL(Sub_Category_2__c, 'RTV Pallet Claims'), ISPICKVAL(Sub_Category_2__c, 'Billing Claims') ) ) )</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Solution_Provider_Request_Call</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND( ISPICKVAL( Origin , 'Phone'), OR ($Profile.Name ='Seller Community Channel Partner' , $Profile.Name ='Supplier Community Channel Partner' ))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Solution_Providers</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>OR ($Profile.Name ='Seller Community Channel Partner' ,  $Profile.Name ='Supplier Community Channel Partner' )</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Returns_Reductions</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Sub_Category_1__c</field>
+                <operation>equals</operation>
+                <value>Return Reduction Opportunities</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Partner_Integration</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(  INCLUDES(Partnership__r.Partnership_Tag__c, 'White Glove_Transition'),  OR(ISPICKVAL(Partnership__r.Partnership_Status__c,'Live'),  ISPICKVAL(Partnership__r.Partnership_Status__c,'Suspended'))  )</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>DSV_Vendor_Compliance</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Sub_Category_1__c</field>
+                <operation>equals</operation>
+                <value>DSV Vendor Compliance</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Sub_Category_2__c</field>
+                <operation>notEqual</operation>
+                <value>Both Late & Reject Chargebacks</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Supplier_Performance</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(ISPICKVAL(Issue_Category__c, 'My Account Services'),  ISPICKVAL(Sub_Category_1__c, 'Supplier Scorecard'),  ISPICKVAL(Sub_Category_2__c, 'Order Defect Rate'),  RecordType.DeveloperName = 'Walmart_DSV'  )</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Canada_Application_Appeals</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category__c</field>
+                <operation>equals</operation>
+                <value>Canada Application Appeal</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Walmart.ca</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Canada_Seller_Support_Queue</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 OR 2</booleanFilter>
+            <criteriaItems>
+                <field>Account.Wal_Account_Name__c</field>
+                <operation>equals</operation>
+                <value>GeekSeller (Canada)</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Account.Name</field>
+                <operation>equals</operation>
+                <value>ChannelAdvisor (Canada)</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Canada_Seller_Onboarding_Queue_CN</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>RecordType.DeveloperName = 'Walmart_ca' &&
+ISPICKVAL(Language_selected_for_support__c, '中文 (Chinese)') &&
+OR(
+( Partnership__c <> null && (ISPICKVAL(Partnership__r.Partnership_Status__c, 'Prospecting') || ISPICKVAL(Partnership__r.Partnership_Status__c, 'Onboarding') || ISPICKVAL(Partnership__r.Partnership_Status__c, ''))
+),
+
+( AccountId <> null && Account.RecordType.DeveloperName = 'CA_Marketplace' &&
+OR(
+ISPICKVAL( Account.Partner_Onboarding_Status__c , 'Prospecting'),
+ISPICKVAL( Account.Partner_Onboarding_Status__c , 'Onboarding'),
+ISPICKVAL( Account.Partner_Onboarding_Status__c , '')
+)
+)
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Canada_Seller_Support_Queue_CN</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>RecordType.DeveloperName = 'Walmart_ca' &&
+ISPICKVAL(Language_selected_for_support__c, '中文 (Chinese)') &&
+OR(
+(Partnership__c <> null &&
+(ISPICKVAL(Partnership__r.Partnership_Status__c, 'Live') || ISPICKVAL(Partnership__r.Partnership_Status__c, 'Suspended') || ISPICKVAL(Partnership__r.Partnership_Status__c, 'Terminated'))
+),
+( AccountId <> null && Account.RecordType.DeveloperName = 'CA_Marketplace' &&
+OR(
+ISPICKVAL( Account.Partner_Onboarding_Status__c , 'Live'),
+ISPICKVAL( Account.Partner_Onboarding_Status__c , 'Suspended'),
+ISPICKVAL( Account.Partner_Onboarding_Status__c , 'Terminated')))
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Canada_Seller_Onboarding_Queue_FR</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>RecordType.DeveloperName = 'Walmart_ca' &&
+ISPICKVAL(Language_selected_for_support__c, 'Français (French)') &&
+OR(
+( Partnership__c <> null && (ISPICKVAL(Partnership__r.Partnership_Status__c, 'Prospecting') || ISPICKVAL(Partnership__r.Partnership_Status__c, 'Onboarding') || ISPICKVAL(Partnership__r.Partnership_Status__c, ''))
+),
+
+( AccountId <> null && Account.RecordType.DeveloperName = 'CA_Marketplace' &&
+OR(
+ISPICKVAL( Account.Partner_Onboarding_Status__c , 'Prospecting'),
+ISPICKVAL( Account.Partner_Onboarding_Status__c , 'Onboarding'),
+ISPICKVAL( Account.Partner_Onboarding_Status__c , '')
+)
+)
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Canada_Seller_Support_Queue_FR</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>RecordType.DeveloperName = 'Walmart_ca' &&
+ISPICKVAL(Language_selected_for_support__c, 'Français (French)') &&
+OR(
+(Partnership__c <> null &&
+(ISPICKVAL(Partnership__r.Partnership_Status__c, 'Live') || ISPICKVAL(Partnership__r.Partnership_Status__c, 'Suspended') || ISPICKVAL(Partnership__r.Partnership_Status__c, 'Terminated'))
+),
+( AccountId <> null && Account.RecordType.DeveloperName = 'CA_Marketplace' &&
+OR(
+ISPICKVAL( Account.Partner_Onboarding_Status__c , 'Live'),
+ISPICKVAL( Account.Partner_Onboarding_Status__c , 'Suspended'),
+ISPICKVAL( Account.Partner_Onboarding_Status__c , 'Terminated')))
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Canada_Seller_Onboarding_Queue</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>RecordType.DeveloperName = 'Walmart_ca' &&
+OR(
+( Partnership__c <> null && (ISPICKVAL(Partnership__r.Partnership_Status__c, 'Prospecting') || ISPICKVAL(Partnership__r.Partnership_Status__c, 'Onboarding') || ISPICKVAL(Partnership__r.Partnership_Status__c, ''))
+),
+
+( AccountId <> null && Account.RecordType.DeveloperName = 'CA_Marketplace' &&
+OR(
+ISPICKVAL( Account.Partner_Onboarding_Status__c , 'Prospecting'),
+ISPICKVAL( Account.Partner_Onboarding_Status__c , 'Onboarding'),
+ISPICKVAL( Account.Partner_Onboarding_Status__c , '')
+)
+)
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Canada_Seller_Support_Queue</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>RecordType.DeveloperName = 'Walmart_ca' &&
+OR(
+(Partnership__c <> null &&
+(ISPICKVAL(Partnership__r.Partnership_Status__c, 'Live') || ISPICKVAL(Partnership__r.Partnership_Status__c, 'Suspended') || ISPICKVAL(Partnership__r.Partnership_Status__c, 'Terminated'))
+),
+( AccountId <> null && Account.RecordType.DeveloperName = 'CA_Marketplace' &&
+OR(
+ISPICKVAL( Account.Partner_Onboarding_Status__c , 'Live'),
+ISPICKVAL( Account.Partner_Onboarding_Status__c , 'Suspended'),
+ISPICKVAL( Account.Partner_Onboarding_Status__c , 'Terminated')))
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>DSV_Alarm</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category__c</field>
+                <operation>equals</operation>
+                <value>DSV Alerts</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Walmart DSV</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Solution_Providers</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Walmart DSV</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category__c</field>
+                <operation>equals</operation>
+                <value>API</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Supplier_Onboarding</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Walmart DSV</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Issue_Category__c</field>
+                <operation>equals</operation>
+                <value>DSV Onboarding</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category__c</field>
+                <operation>equals</operation>
+                <value>EDI/API Integration</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Supplier_Onboarding</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Walmart DSV</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Issue_Category__c</field>
+                <operation>equals</operation>
+                <value>DSV Onboarding</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Original_Sub_Category__c</field>
+                <operation>notEqual</operation>
+                <value>Item Setup</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Chile_Logistic</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Chile Comunidad Seller Caso</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.CaseType__c</field>
+                <operation>equals</operation>
+                <value>Logística</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Case_Level_2__c</field>
+                <operation>notEqual</operation>
+                <value>Seller Center,Envíame Pedidos</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Chile_Payment</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Chile Comunidad Seller Caso</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.CaseType__c</field>
+                <operation>equals</operation>
+                <value>Liquidación y pagos,Devoluciones</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Chile_Support</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 AND (2 OR (4 AND 3))</booleanFilter>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Chile Comunidad Seller Caso</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.CaseType__c</field>
+                <operation>equals</operation>
+                <value>Seller Center,Cuenta,Logística</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Case_Level_2__c</field>
+                <operation>equals</operation>
+                <value>Seller Center,Envíame Pedidos</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.CaseType__c</field>
+                <operation>equals</operation>
+                <value>Logística</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Walmart_CA_Item_360</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Walmart CA – Item 360</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Status</field>
+                <operation>equals</operation>
+                <value>New</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>DSV_Owned_Partner_Support</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Walmart DSV,Walmart Owned</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Service_Now_KB_Id__c</field>
+                <operation>equals</operation>
+                <value></value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Risk_Ops_Limits</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Seller Limits</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.ParentId</field>
+                <operation>notEqual</operation>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>sellsucces@walmart.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Seller Risk</value>
+            </criteriaItems>
+        </ruleEntry>
+    </assignmentRule>
